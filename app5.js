@@ -34,15 +34,34 @@ app.get("/janken", (req, res) => {
   console.log( {hand, win, total});
   const num = Math.floor( Math.random() * 3 + 1 );
   let cpu = '';
-  if( num==1 ) cpu = 'グー';
-  else if( num==2 ) cpu = 'チョキ';
-  else cpu = 'パー';
+  let judgement ='';
+  if( num==1 ) cpu = 'ぐー';
+  else if( num==2 ) cpu = 'ちょき';
+  else cpu = 'ぱー';
   // ここに勝敗の判定を入れる
   // 今はダミーで人間の勝ちにしておく
-  let judgement = '勝ち';
-  win += 1;
+  if( hand=='ぐー'){
+    if( cpu=='ぐー') {judgement ='あいこ';}
+    else if( cpu='ちょき') {judgement='かち';  win += 1;} // 買った時だけふやす
+    else {judgement='負け';}}
+    
+  else if( hand=='ちょき'){
+    if( cpu=='ぐー') {judgement ='負け';}
+    else if( cpu='ちょき') {judgement='あいこ';}
+    else {judgement='かち';  win += 1;} } // 買った時だけふやす
+      
+  else if( hand=='ぱー'){
+    if( cpu=='ぐー') {judgement ='かち';  win += 1;}  // 買った時だけふやす
+    else if( cpu='ちょき') {judgement='負け';}
+    else {judgement='あいこ';}}
+  
+  else judgement = 'command not hand';
+  //if( hand!='ぐー','ちょき','ぱー') judgement = 'command not hand';
+
+  
+
   total += 1;
-  const display = {
+  const display = {  // 変数動いてるかチェック
     your: hand,
     cpu: cpu,
     judgement: judgement,
@@ -53,3 +72,5 @@ app.get("/janken", (req, res) => {
 });
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
+
+
