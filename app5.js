@@ -71,6 +71,46 @@ app.get("/janken", (req, res) => {
   res.render( 'janken', display );
 });
 
+
+//------------------------------
+app.get("/teacher", (req, res) => {
+  let name = req.query.name;
+
+
+  if( name=='須田')
+    {judgement ='Webプログラミング';}
+    
+  else if( name=='水本')
+    {judgement ='データ通信';}
+
+  else if( name=='三木')
+    {judgement ='データサイエンス';}
+  
+  else judgement = '火曜日の授業の先生しか表示できません';
+
+  res.render( 'teacher');
+})
+//-------------------
+app.get("/pokemon", (req, res) => {
+  let name = req.query.name;
+
+
+  if( name=='ピカチュウ')
+    {judgement ='電気ネズミポケモン';}
+    
+  else if( name=='ヒトカゲ')
+    {judgement ='トカゲポケモン';}
+
+  else if( name=='フシギダネ')
+    {judgement ='たねポケモン';}
+
+  else if( name=='ゼニガメ')
+    {judgement ='かめのこポケモン';}
+  
+  else judgement = 'ケツバン';
+
+  res.render( 'pokemon');
+})
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
 
 
