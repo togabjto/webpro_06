@@ -12,9 +12,11 @@ view/pokemon.ejs | ポケモン図鑑を表示するプログラム
 console.log("hello");
 ```
 ## ポケモン図鑑を実装する手順
-1. app5.jsを起動する
+1. app5.jsを起動する(https://github.com/togabjto/webpro_06/blob/main/app5.js)
 
-2. webブラウザでlocalhost:8080/public/pokemon.htmlにアクセスする
+2. webブラウザでlocalhost:8080/public/pokemon.htmlにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/pokemon.ejs)
+
+1. ポケモンの名前を入力
 
 1. ポケモンの名前を入力
 
@@ -43,9 +45,9 @@ graph TD;
 
 ```
 ## 選ぶゲームを実装する手順
-1. app5.jsを起動する
+1. app5.jsを起動する(https://github.com/togabjto/webpro_06/blob/main/app5.js)
 
-2. webブラウザでlocalhost:8080/public/select.htmlにアクセスする
+2. webブラウザでlocalhost:8080/public/select.htmlにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/select.ejs)
 
 1. 右，真ん中，左から選ぶ
 
