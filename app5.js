@@ -73,22 +73,20 @@ app.get("/janken", (req, res) => {
 
 
 //------------------------------
-app.get("/teacher", (req, res) => {
-  let name = req.query.name;
+app.get("/select", (req, res) => {
 
-
-  if( name=='須田')
-    {judgement ='Webプログラミング';}
-    
-  else if( name=='水本')
-    {judgement ='データ通信';}
-
-  else if( name=='三木')
-    {judgement ='データサイエンス';}
+  let hand = req.query.cup;
+  const num = Math.floor( Math.random() * 3 + 1 );
+  let cpu = '';
   
-  else judgement = '火曜日の授業の先生しか表示できません';
+  if( num==1 ) cpu = '右';
+  else if( num==2 ) cpu = '左';
+  else cpu ='真ん中';
 
-  res.render( 'teacher');
+  if(cpu==hand) judgement='congrdatulation';
+  else judgement=cpu;
+
+  res.render( 'select');
 })
 //-------------------
 app.get("/pokemon", (req, res) => {
