@@ -11,25 +11,23 @@ view/pokemon.ejs | ポケモン図鑑を表示するプログラム
 ```javascript
 console.log("hello");
 ```
-## ポケモン図鑑を実装する手順
+## ポケモン図鑑の機能
+入力したポケモンの説明を表示する．
+対応するポケモンはヒトカゲ，ゼニガメ，フシギダネ，ピカチュウ．
+
+
+## ポケモン図鑑を使う手順
 1. app5.jsを起動する(https://github.com/togabjto/webpro_06/blob/main/app5.js)
 
-2. webブラウザでlocalhost:8080/public/pokemon.htmlにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/pokemon.ejs)
+1. webブラウザでlocalhost:8080/public/pokemon.ejsにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/pokemon.ejs)
 
 1. ポケモンの名前を入力
 
-1. ポケモンの名前を入力
 
-1. pokemonルートにアクセス
-
-1. 入力されたポケモンに応じた解説を返す(対応していないポケモンが入力されたらケツバンと返す)
-
-
-
-
+## ポケモン図鑑を実装する手順
 ```mermaid
 graph TD;
-    Start["/pokemon ルートにアクセス"] --> CheckName{"どのポケモン？"}
+    Start["開始"] --> CheckName{"どのポケモン？"}
     
     CheckName -- ピカチュウ --> Pikachu["'電気ネズミポケモン'"]
     CheckName -- ヒトカゲ --> Hitokage["'トカゲポケモン'"]
@@ -44,19 +42,22 @@ graph TD;
     Else --> Render
 
 ```
-## 選ぶゲームを実装する手順
+
+## 選ぶゲームの機能
+あたりのかっこを選ぶ．
+画面に表示されるかっこのうちあたりのものを右，真ん中，左から選ぶ．
+
+## 選ぶゲームをする手順
 1. app5.jsを起動する(https://github.com/togabjto/webpro_06/blob/main/app5.js)
 
-2. webブラウザでlocalhost:8080/public/select.htmlにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/select.ejs)
+2. webブラウザでlocalhost:8080/public/select.ejsにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/select.ejs)
 
 1. 右，真ん中，左から選ぶ
 
-1. selectルートにアクセス
-
-1. 入力された選択が合ってたらcongratulation(外れたら答え)
+## 選ぶゲームを実装する手順
 ```mermaid
 graph TD;
-    Start["/select ルートにアクセス"]--> RandomNum["1 から 3 の乱数を生成"]
+    Start["開始"]--> RandomNum["1 から 3 の乱数を生成"]
 
     RandomNum -->|1| Right["cpu = '右'"]
     RandomNum -->|2| Left["cpu = '左'"]
