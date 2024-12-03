@@ -19,7 +19,7 @@ console.log("hello");
 ## ポケモン図鑑を使う手順
 1. app5.jsを起動する(https://github.com/togabjto/webpro_06/blob/main/app5.js)
 
-1. webブラウザでlocalhost:8080/public/pokemon.ejsにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/pokemon.ejs)
+1. webブラウザでlocalhost:8080/pokemonにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/pokemon.ejs)
 
 1. ポケモンの名前を入力
 
@@ -50,7 +50,7 @@ graph TD;
 ## 選ぶゲームをする手順
 1. app5.jsを起動する(https://github.com/togabjto/webpro_06/blob/main/app5.js)
 
-2. webブラウザでlocalhost:8080/public/select.ejsにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/select.ejs)
+2. webブラウザでlocalhost:8080/selectにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/select.ejs)
 
 1. 右，真ん中，左から選ぶ
 
