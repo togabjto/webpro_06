@@ -21,9 +21,8 @@ console.log("hello");
 
 1. webブラウザでlocalhost:8080/pokemonにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/pokemon.ejs)
 
-1. ポケモンの名前を入力
+1. ポケモンの名前と対応するボタンをクリック
 
-1. ボタンをクリック
 
 ## ポケモン図鑑を実装する手順
 ```mermaid
@@ -53,9 +52,8 @@ graph TD;
 
 2. webブラウザでlocalhost:8080/selectにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/select.ejs)
 
-1. 右，真ん中，左から選ぶ
+1. 右，真ん中，左から対応するボタンをクリック
 
-1. ボタンをクリック
 ## 選ぶゲームを実装する手順
 ```mermaid
 graph TD;
