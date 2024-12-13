@@ -73,7 +73,7 @@ app.get("/janken", (req, res) => {
 
 
 //------------------------------
-app.get("/select", (req, res) => {
+app.get("/select+", (req, res) => {
 
   let hand = req.query.cup;
   const num = Math.floor( Math.random() * 3 + 1 );
@@ -83,10 +83,28 @@ app.get("/select", (req, res) => {
   else if( num==2 ) cpu = '左';
   else cpu ='真ん中';
 
-  if(cpu==hand) judgement='congrdatulation';
+  if(cpu==hand) judgement='🎉💎congrdatulation🎁✨';
   else judgement=cpu;
-
   res.render( 'select');
+  console.log(`ユーザーが選んだのは: ${hand}`);
+  console.log(`CPUが選んだのは: ${cpu}`);
+  console.log(`判定結果: ${judgement}`);
+})
+
+app.get("/select", (req, res) => {
+
+  let cup = req.query.cup;
+  const num = Math.floor( Math.random() * 3 + 1 );
+  let cpu = '';
+  
+  if( num==1 ) cpu = '右';
+  else if( num==2 ) cpu = '左';
+  else cpu ='真ん中';
+
+  if(cpu==cup) judgement='🎉💎congrdatulation🎁✨';
+  else judgement=cpu;
+  res.render( 'select');
+  console.log(`判定結果: ${cup}`);
 })
 //-------------------
 app.get("/pokemon", (req, res) => {
@@ -108,6 +126,8 @@ app.get("/pokemon", (req, res) => {
   else judgement = 'ケツバン';
 
   res.render( 'pokemon');
+  console.log(`ユーザーが選んだのは: ${name}`);
+  console.log(`CPUが選んだのは: ${judgement}`);
 })
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
 

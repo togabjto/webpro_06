@@ -2,15 +2,27 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ポケモン図鑑</title>
 </head>
 <body>
-
+    <h1>ポケモン図鑑</h1>
     <p>検索結果：<%= judgement %></p>
     <hr>
-    <form action="/pokemon">
+    <form action="/pokemon" method="GET">
         <label for="name">どのポケモンが知りたい？</label>
-        <input type="name" name="name" >
-    </form>   
+        <br>
+        <label><input type="radio" name="name" value="ヒトカゲ">ヒトカゲ</label>
+        <br>
+        <label><input type="radio" name="name" value="ゼニガメ">ゼニガメ</label>
+        <br>
+        <label><input type="radio" name="name" value="フシギダネ">フシギダネ</label>
+        <br>
+        <label><input type="radio" name="name" value="ピカチュウ">ピカチュウ</label>
+        <br>
+        <input type="submit" name="submit" value="検索">
+        <br>
+        <label>知らないポケモンはケツバンって表示されるよ！</label>
+    </form>
 </body>
 </html>

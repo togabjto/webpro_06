@@ -5,12 +5,21 @@
     <title>select</title>
 </head>
 <body>
-    <p>🫲(?)(?)(?)🫱</p> 
+    <h1>🫲(?)(?)(?)🫱</h1> 
     <p>結果発表：<%= judgement %></p>
     <hr>
     <form action="/select">
         <label for="cup">どれが正解？</label>
-        <input type="cup" name="cup" >
-    </form>   
-</body>
+        <br>
+        <label><input type="radio" name="cup" value="左">左</label>
+        <br>
+        <label><input type="radio" name="cup" value="真ん中">真ん中</label>
+        <br>
+        <label><input type="radio" name="cup" value="右">右</label>
+        <br>
+        <input type="submit" name="submit" value="検索">
+        <br>
+        <label>外れたら入っていた場所が表示されるよ！</label>
+        </form>
+    </body>
 </html>
