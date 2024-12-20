@@ -44,19 +44,19 @@ graph TD;
 
 ```
 
-## 選ぶゲームの機能
+## 宝探しゲームの機能
 3つの宝箱があり，1つだけお宝が入ってる．
 画面に表示される箱のうちあたりのものを右，真ん中，左から選ぶ．
 外れたらお宝があった場所が表示される．
 
-## 選ぶゲームをする手順
+## 宝探しゲームをする手順
 1. webサーバーとしてapp5.jsを起動する(https://github.com/togabjto/webpro_06/blob/main/app5.js)
 
 2. webブラウザでlocalhost:8080/selectにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/select.ejs)
 
 1. 右，真ん中，左から対応するボタンをクリック
 
-## 選ぶゲームを実装する手順
+## 宝探しゲームを実装する手順
 ```mermaid
 graph TD;
     Start["開始"]--> RandomNum["1 から 3 の乱数を生成"]
