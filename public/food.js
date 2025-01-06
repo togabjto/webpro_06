@@ -6,7 +6,7 @@ document.querySelector('#post').addEventListener('click', () => {
     const name = document.querySelector('#name').value;
     const message = document.querySelector('#message').value;
 
-    const params = {  // URL Encode
+    const params = {  // URL Encodee
         method: "POST",
         body:  'name='+name+'&message='+message,
         headers: {
