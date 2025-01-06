@@ -90,6 +90,7 @@ app.get("/select", (req, res) => {
 //-------------------
 app.get("/pokemon", (req, res) => {
   let name = req.query.name;
+  let judgement ;
 
 
   if( name=='ピカチュウ')
@@ -109,7 +110,11 @@ app.get("/pokemon", (req, res) => {
   res.render( 'pokemon');
   console.log(`ユーザーが選んだのは: ${name}`);
   console.log(`CPUが選んだのは: ${judgement}`);
+
+  res.render('pokemon', { judgement: judgement });
+
 })
+
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
 
 

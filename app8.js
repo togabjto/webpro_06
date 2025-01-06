@@ -85,6 +85,7 @@ app.post("/add", (req, res) => {
 // これより下はBBS関係
 app.post("/check", (req, res) => {
   // 本来はここでDBMSに問い合わせる
+  console.log(bbs);
   res.json( {number: bbs.length });
 });
 
@@ -131,3 +132,4 @@ app.delete("/bbs/:id", (req,res) => {
 });
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
+

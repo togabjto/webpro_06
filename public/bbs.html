@@ -8,16 +8,39 @@
     <link rel="stylesheet" href="./bbs.css">
 </head>
 <body>
-    <div id="bbs"></div>
-    <div>
-        <label for="name">名前：</label>
-        <input type="text" id="name">
-        <label for="name">メッセージ：</label>
-        <input type="text" id="message">
-        <button type="button" id="post">送信</button>
-    </div>
+    <h1>BBS</h1>
+
+    <!-- 投稿フォーム -->
+    <form id="post-form">
+        <input type="text" id="name" placeholder="Your Name">
+        <textarea id="message" placeholder="Your Message"></textarea>
+        <button type="button" id="post">投稿</button>
+    </form>
+
+    <!-- 更新チェック -->
+    <button type="button" id="check">更新チェック</button>
+
+    <!-- 特定の投稿を取得 -->
+    <h2>Get a Post</h2>
+    <input type="text" id="id" placeholder="Enter Post ID">
+    <button type="button" id="get-button">検索</button>
+
+    <!-- 投稿の更新 -->
+    <h2>Update a Post</h2>
+    <input type="text" id="id" placeholder="Enter Post ID">
+    <input type="text" id="new-message" placeholder="New Message">
+    <button type="button" id="update-button">更新チェック</button>
+
+    <!-- 投稿の削除 -->
+    <h2>Delete a Post</h2>
+    <input type="text" id="id" placeholder="Enter Post ID">
+    <button type="button" id="delete-button">削除</button>
+
+    <!-- 投稿一覧表示エリア -->
     <div id="check">
-        <button type="button" id="check">投稿チェック</button>
+    <button type="button" id="check">投稿チェック</button>
     </div>
+
+
 </body>
 </html>
