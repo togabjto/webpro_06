@@ -101,7 +101,7 @@ app.post("/post", (req, res) => {
   const name = req.body.name;
   const message = req.body.message;
   console.log( [name, message] );
-  // 本来はここでDBMSに保存する
+  // 本来はここでDBMSに保存する,
   bbs.push( { name: name, message: message } );
   res.json( {number: bbs.length } );
 });
