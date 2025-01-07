@@ -201,7 +201,7 @@ app.post('/update_total', (req, res) => {
 // 合計値を取得するエンドポイント
 app.get('/get_total', (req, res) => {
   console.log(req.method); // リクエストメソッドをログに出力して使用
-  res.json({ total });     // サーバー上の total をクライアントに返す
+  res.json({ total });     // サーバー上の total をクライアントに返す.
 });
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
