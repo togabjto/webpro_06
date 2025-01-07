@@ -75,6 +75,7 @@ app.get("/janken", (req, res) => {
 app.get("/select", (req, res) => {
 
   let cup = req.query.cup;
+  let judgement ;//直しました！
   const num = Math.floor( Math.random() * 3 + 1 );
   let cpu = '';
   
@@ -84,13 +85,13 @@ app.get("/select", (req, res) => {
 
   if(cpu==cup) judgement='🎉💎congrdatulation🎁✨';
   else judgement=cpu;
-  res.render( 'select');
+  res.render('select', { judgement: judgement });
   console.log(`判定結果: ${cup}`);
 })
 //-------------------
 app.get("/pokemon", (req, res) => {
   let name = req.query.name;
-  let judgement ;
+  let judgement ;//直しました！
 
 
   if( name=='ピカチュウ')
@@ -107,7 +108,6 @@ app.get("/pokemon", (req, res) => {
   
   else judgement = 'ケツバン';
 
-  res.render( 'pokemon');
   console.log(`ユーザーが選んだのは: ${name}`);
   console.log(`CPUが選んだのは: ${judgement}`);
 

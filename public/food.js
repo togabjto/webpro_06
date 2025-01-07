@@ -2,31 +2,7 @@
 
 let number=0;
 const bbs = document.querySelector('#bbs');
-document.querySelector('#post').addEventListener('click', () => {
-    const name = document.querySelector('#name').value;
-    const message = document.querySelector('#message').value;
 
-    const params = {  // URL Encodee
-        method: "POST",
-        body:  'name='+name+'&message='+message,
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    };
-    console.log( params );
-    const url = "/post";
-    fetch( url, params )
-    .then( (response) => {
-        if( !response.ok ) {
-            throw new Error('Error');
-        }
-        return response.json();
-    })
-    .then( (response) => {
-        console.log( response );
-        document.querySelector('#message').value = "";
-    });
-});
 
 document.querySelector('#check').addEventListener('click', () => {
     const params = {  // URL Encode
@@ -91,17 +67,17 @@ document.querySelector('#check').addEventListener('click', () => {
     // ラジオボタンの値を取得
     const selected = document.querySelector('input[name="team"]:checked');
     if (!selected) {
-        alert("どれか一つ選んでください！");
+        console.log("どれか一つ選んでください！");
         return;
     }
 
     const value = Number(selected.value); // 数値型に変換
     console.log("選択された値:", value);
 
-    // サーバーにデータを送信
+    // サーバーに値を送信して合計を更新
     const params = {
         method: "POST",
-        body: `value=${value}`, // 値をURLエンコードして送信
+        body: `value=${value}`,
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
@@ -116,7 +92,6 @@ document.querySelector('#check').addEventListener('click', () => {
         })
         .then((data) => {
             console.log("サーバーからの応答:", data);
-            // サーバーから受け取った合計値を表示
             const bbsDiv = document.querySelector('#bbs');
             bbsDiv.textContent = `現在の合計: ${data.total}`;
         })

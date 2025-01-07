@@ -155,16 +155,16 @@ app.delete("/bbs/:id", (req, res) => {
 let savedValue = null; // ラジオボタンで選択された値を保存する変数
 
 // POSTリクエストで値を保存
-app.post('/save', (req, res) => {
-    const { value } = req.body; // クライアントから送られた値を取得
-    if (!value) {
-        return res.status(400).json({ error: "値が送られていません。" });
-    }
+//app.post('/save', (req, res) => {
+  //  const { value } = req.body; // クライアントから送られた値を取得
+    //if (!value) {
+      //  return res.status(400).json({ error: "値が送られていません。" });
+    //}
 
-    savedValue = value; // 値を保存
-    console.log("保存された値:", savedValue);
-    res.json({ savedValue }); // 保存された値をクライアントに返す
-});
+    //savedValue = value; // 値を保存
+    //console.log("保存された値:", savedValue);
+    //res.json({ savedValue }); // 保存された値をクライアントに返す
+//});
 
 // 値を取得するためのGETエンドポイント
 app.get('/get_saved_value', (req, res) => {
