@@ -9,7 +9,7 @@ public/select.ejs | 選ぶゲームを表示するプログラム
 view/pokemon.ejs | ポケモン図鑑を表示するプログラム
 
 ```javascript
-console.log("hello");
+console.log("helllo");
 ```
 ## ポケモン図鑑の機能
 入力したポケモンの説明を表示する．
