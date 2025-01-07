@@ -44,7 +44,7 @@ document.querySelector('#check').addEventListener('click', () => {
             .then( (response) => {
                 number += response.messages.length;
                 for( let mes of response.messages ) {
-                    console.log( mes );  // 表示する投稿
+                    console.log( mes );  // 表示する投稿a
                     let cover = document.createElement('div');
                     cover.className = 'cover';
                     let name_area = document.createElement('span');
