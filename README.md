@@ -18,9 +18,8 @@ console.log("hello");
 
 
 ## ポケモン図鑑を使う手順
-1. webサーバーとしてapp5.jsを起動する(https://github.com/togabjto/webpro_06/blob/main/app5.js)
-
-1. webブラウザでlocalhost:8080/pokemonにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/pokemon.ejs)
+1. webサーバーとしてapp5.jsを起動する(http://localhost:8080/pokemon)
+1. webブラウザでlocalhost:8080/pokemonにアクセスする
 
 1. ポケモンの名前と対応するボタンをクリック
 
@@ -50,10 +49,9 @@ graph TD;
 外れたらお宝があった場所が表示される．
 
 ## 宝探しゲームをする手順
-1. webサーバーとしてapp5.jsを起動する(https://github.com/togabjto/webpro_06/blob/main/app5.js)
+1. webサーバーとしてapp5.jsを起動する(http://localhost:8080/select)
 
-2. webブラウザでlocalhost:8080/selectにアクセスする(https://github.com/togabjto/webpro_06/blob/main/views/select.ejs)
-
+1. webブラウザでlocalhost:8080/selectにアクセスする
 1. 右，真ん中，左から対応するボタンをクリック
 
 ## 宝探しゲームを実装する手順
