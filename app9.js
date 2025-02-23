@@ -152,27 +152,12 @@ app.delete("/bbs/:id", (req, res) => {
   }
 });
 
-let savedValue = null; // ラジオボタンで選択された値を保存する変数
 
-// POSTリクエストで値を保存
-//app.post('/save', (req, res) => {
-  //  const { value } = req.body; // クライアントから送られた値を取得
-    //if (!value) {
-      //  return res.status(400).json({ error: "値が送られていません。" });
-    //}
 
-    //savedValue = value; // 値を保存
-    //console.log("保存された値:", savedValue);
-    //res.json({ savedValue }); // 保存された値をクライアントに返す
-//});
+//ここから券売機に関するコード
 
-// 値を取得するためのGETエンドポイント
-app.get('/get_saved_value', (req, res) => {
-    res.json({ savedValue }); // 現在保存されている値を返す
-});
 
 let total = 0; // 数値の合計を保存する変数
-
 // POSTリクエストで値を保存し合計を更新
 app.post('/save', (req, res) => {
     const { value } = req.body; // クライアントから送られた値を取得
@@ -185,23 +170,4 @@ app.post('/save', (req, res) => {
     console.log("現在の合計:", total);
     res.json({ total }); // 合計値をクライアントに返す
 });
-
-
-app.post('/update_total', (req, res) => {
-  const value = Number(req.body.value); // クライアントから送られた値
-  if (!isNaN(value)) {
-      total += value; // 合計値を更新
-      res.json({ success: true, total });
-  } else {
-      res.status(400).json({ success: false, error: "Invalid value" });
-  }
-});
-
-
-// 合計値を取得するエンドポイント
-app.get('/get_total', (req, res) => {
-  console.log(req.method); // リクエストメソッドをログに出力して使用
-  res.json({ total });     // サーバー上の total をクライアントに返す.
-});
-
 app.listen(8080, () => console.log("Example app listening on port 8080!"));

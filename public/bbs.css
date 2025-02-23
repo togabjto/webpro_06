@@ -8,6 +8,15 @@
     width: 8em;
 }
 
-.mes {
-    margin-left: 30px;
+.textContent {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    
+}
+
+.cost {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
 }
