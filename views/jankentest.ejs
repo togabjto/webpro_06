@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+
+    <p>あなたの手は<%= your %>です．</p>
+    <p>コンピュータは<%= cpu %>です．</p>
+    <p>判定：<%= judgement %></p>
+    <p>現在<%= total %>試合中<%= win %>勝しています．</p>
+    <hr>
+
+
+
+
+    <h2>セレクトボックス</h2>
+    <label for="country">じゃんけんの手の選択</label>
+    <select id="country" name="hand">
+    <option value="1">ロック</option>
+    <option value="2">シーザー</option>
+    <option value="3">ペーパー</option>
+    </select>
+
+    <h2>送信ボタン</h2>
+    <input type="submit" value="送信">
+
+
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+
+    <h2>テキスト入力</h2>
+    <input type="text" name="username" placeholder="ユーザー名を入力してください">
+    <h2>パスワード入力</h2>
+    <input type="password" name="password" placeholder="パスワードを入力してください">
+    <h2>スライダー</h2>
+    <input type="range">
+    <h2>ラジオボタン</h2>
+    <label for="blue">青</label>
+    <input type="radio" id="blue" name="color" value="blue">
+    <label for="red">赤</label>
+    <input type="radio" id="red" name="color" value="red">
+    <h2>チェックボックス</h2>
+    <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+
+
+    <h2>ファイルをアップロードする</h2>
+    <input type="file" name="file">
+    <h2>日付を選択</h2>
+    <input type="date" name="hogeDate">
+
+    <h2>ボタン</h2>
+    <input type="button" value="クリックbtn">
+
+    <h2>リセットボタン</h2>
+    <input type="reset" value="リセット">
+
+    <h2>時間の入力</h2>
+    <input type="time">
+    </form>
+
+
+
+
+</body>
+</html>
