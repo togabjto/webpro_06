@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>削除の確認</title>
+</head>
+<body>
+  <div style="background-color: #ffcccc; padding: 20px; border: 2px solid red;">
+    <h2>⚠️ 削除の確認</h2>
+    <p>本当に以下の銘柄を逃してもいいですか？</p>
+    <p>この操作は取り消せません！</p>
+    
+    <ul>
+      <li><strong>ID:</strong> <%= data.id %></li>
+      <li><strong>地域:</strong> <%= data.region %></li>
+      <li><strong>データ:</strong> <%= data.name %></li>
+      <li><strong>買う:</strong> <%= data.buy %></li>
+    </ul>
+
+    <form action="/brand2/delete/<%= id %>" method="POST">
+      <input type="submit" value="本当に削除する" style="color: white; background-color: red; padding: 10px;">
+    </form>
+    
+    <br>
+    <a href="/brand2">やめる（一覧に戻る）</a>
+  </div>
+</body>
+</html>

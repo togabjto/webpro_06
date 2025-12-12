@@ -1,0 +1,21 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>株の銘柄</title>
+</head>
+<body>
+  <h2>銘柄の詳細</h2>
+  <table>
+    <tr><th>メニューID</th><th>価格</th><th>メニュー名</th></tr>
+      <% let number = 0 %>
+      <% for( let row of data ) { %>
+        <td><%= row.id %></td>
+        <td><%= row.cost %></td>
+        <td><a href="/menu2/<%= number %>"><%= row.name %></a></td>
+        <td><%= row.buy %></td></tr>
+        <% number += 1 %>
+      <% } %>
+  </table>
+</body>
+</html>

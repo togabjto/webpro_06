@@ -1,0 +1,28 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ポケモン図鑑</title>
+</head>
+<body>
+  <h2>ポケモンの詳細</h2>
+  <a href="/pokemon2/create">
+    <button type="button">新規登録</button>
+  </a>
+  
+  <br><br>
+  <table>
+    <tr><th>ID</th><th>タイプ1</th><th>タイプ2</th></th><th>分類</tr>
+      <% let number = 0 %>
+      <% for( let row of data ) { %>
+        <tr><td><%= row.id %></td>
+        <td><%= row.type1 %></td>
+        <td><%= row.type2 %></td>
+        <td><%= row.kind %></td>
+        <td><a href="/pokemon2/<%= number %>"><%= row.name %></a></td></tr>
+        <% number += 1 %>
+      <% } %>
+  </table>
+</body>
+</html>
+

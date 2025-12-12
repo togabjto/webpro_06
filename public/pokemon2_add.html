@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ポケモンを追加する</title>
+</head>
+<body>
+    <form action="/pokemon2_add" method="post">
+        <label for="id">ID</label>
+        <input type="number" name="id" id="id" required>
+
+        <label for="type1">type1</label>
+        <input type="text" name="type1" id="type1" required>
+
+        <label for="type2">type1</label>
+        <input type="text" name="type2" id="type2" required>
+
+        <label for="name">名前</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="kind">分類</label>
+        <input type="text" name="kind" id="kind" required>
+
+
+        <button type="submit" name="next_action" value="create">登録して入力を続ける</button>
+        <button type="submit" name="next_action" value="list">登録して一覧に戻る</button>
+    </form>
+</body>
+</html>

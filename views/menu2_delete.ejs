@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>削除の確認</title>
+</head>
+<body>
+  <!-- <div style="background-color: #ffcccc; padding: 20px; border: 2px solid red;"> -->
+    <h2>⚠️ 削除の確認</h2>
+    <p>本当に以下のメニューを逃してもいいですか？</p>
+    <p>この操作は取り消せません！</p>
+    
+    <ul>
+      <li><strong>ID:</strong> <%= data.id %></li>
+      <li><strong>価格:</strong> <%= data.cost %></li>
+      <li><strong>名前:</strong> <%= data.name %></li>
+    </ul>
+
+    <form action="/menu2/delete/<%= id %>" method="POST">
+      <input type="submit" value="本当に削除する">
+    </form>
+    
+    <br>
+    <a href="/menu2">やめる（一覧に戻る）</a>
+  </div>
+</body>
+</html>

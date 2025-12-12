@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>削除の確認</title>
+</head>
+<body>
+  <div style="background-color: #ffcccc; padding: 20px; border: 2px solid red;">
+    <h2>⚠️ 削除の確認</h2>
+    <p>本当に以下のポケモンを逃してもいいですか？</p>
+    <p>この操作は取り消せません！</p>
+    
+    <ul>
+      <li><strong>名前:</strong> <%= data.name %></li>
+      <li><strong>タイプ1:</strong> <%= data.type1 %></li>
+      <li><strong>分類:</strong> <%= data.kind %></li>
+    </ul>
+
+    <form action="/pokemon2/delete/<%= id %>" method="POST">
+      <input type="submit" value="本当に削除する" style="color: white; background-color: red; padding: 10px;">
+    </form>
+    
+    <br>
+    <a href="/pokemon2">やめる（一覧に戻る）</a>
+  </div>
+</body>
+</html>

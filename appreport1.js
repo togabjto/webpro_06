@@ -5,26 +5,17 @@ app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 
-let station = [
-  { id:1, code:"JE01", name:"東京駅"},
-  { id:2, code:"JE07", name:"舞浜駅"},
-  { id:3, code:"JE12", name:"新習志野駅"},
-  { id:4, code:"JE13", name:"幕張豊砂駅"},
-  { id:5, code:"JE14", name:"海浜幕張駅"},
-  { id:6, code:"JE05", name:"新浦安駅"},
-];
-
-let station2 = [
-  { id:1, code:"JE01", name:"東京駅", change:"総武本線，中央線，etc", passengers:403831, distance:0 },
-  { id:2, code:"JE02", name:"八丁堀駅", change:"日比谷線", passengers:31071, distance:1.2 },
-  { id:3, code:"JE05", name:"新木場駅", change:"有楽町線，りんかい線", passengers:67206, distance:7.4 },
-  { id:4, code:"JE07", name:"舞浜駅", change:"舞浜リゾートライン", passengers:76156,distance:12.7 },
-  { id:5, code:"JE12", name:"新習志野駅", change:"", passengers:11655, distance:28.3 },
-  { id:6, code:"JE17", name:"千葉みなと駅", change:"千葉都市モノレール", passengers:16602, distance:39.0 },
-  { id:7, code:"JE18", name:"蘇我駅", change:"内房線，外房線", passengers:31328, distance:43.0 },
-];
-
 let pokemon = [
+  { id:1, type:"JE01", name:"東京駅", change:"総武本線，中央線，etc", passengers:403831, distance:0 },
+  { id:2, type:"JE02", name:"八丁堀駅", change:"日比谷線", passengers:31071, distance:1.2 },
+  { id:3, type:"JE05", name:"新木場駅", change:"有楽町線，りんかい線", passengers:67206, distance:7.4 },
+  { id:4, type:"JE07", name:"舞浜駅", change:"舞浜リゾートライン", passengers:76156,distance:12.7 },
+  { id:5, type:"JE12", name:"新習志野駅", change:"", passengers:11655, distance:28.3 },
+  { id:6, type:"JE17", name:"千葉みなと駅", change:"千葉都市モノレール", passengers:16602, distance:39.0 },
+  { id:7, type:"JE18", name:"蘇我駅", change:"内房線，外房線", passengers:31328, distance:43.0 },
+];
+
+let pokemon2 = [
   // 御三家
   { id: 1, type1: "くさ", type2: "ひこう", name: "モクロー", kind: "くさばね" },
   { id: 2, type1: "くさ", type2: "ひこう", name: "フクスロー", kind: "はばね" },
@@ -42,21 +33,21 @@ let pokemon = [
   { id: 12, type1: "ノーマル", type2: "ひこう", name: "ドデカバシ", kind: "おおはし" },
   { id: 13, type1: "ノーマル", type2: "", name: "ヤングース", kind: "はりこみ" },
   { id: 14, type1: "ノーマル", type2: "", name: "デカグース", kind: "はりこみ" },
-  { id: 27, type1: "むし", type2: "", name: "アゴジムシ", kind: "ようちゅう" },
-  { id: 28, type1: "むし", type2: "でんき", name: "デンヂムシ", kind: "バッテリー" },
-  { id: 29, type1: "むし", type2: "でんき", name: "クワガノン", kind: "くわがた" },
+  { id: 15, type1: "むし", type2: "", name: "アゴジムシ", kind: "ようちゅう" },
+  { id: 16, type1: "むし", type2: "でんき", name: "デンヂムシ", kind: "バッテリー" },
+  { id: 17, type1: "むし", type2: "でんき", name: "クワガノン", kind: "くわがた" },
 
   // その他のポケモン（一部）
-  { id: 83, type1: "むし", type2: "フェアリー", name: "アブリー", kind: "ツリアブ" },
-  { id: 84, type1: "むし", type2: "フェアリー", name: "アブリボン", kind: "ツリアブ" },
-  { id: 103, type1: "いわ", type2: "", name: "イワンコ", kind: "こいぬ" },
-  { id: 104, type1: "いわ", type2: "", name: "ルガルガン（まひるのすがた）", kind: "オオカミ" },
-  { id: 104, type1: "いわ", type2: "", name: "ルガルガン（まよなかのすがた）", kind: "オオカミ" },
+  { id: 18, type1: "むし", type2: "フェアリー", name: "アブリー", kind: "ツリアブ" },
+  { id: 19, type1: "むし", type2: "フェアリー", name: "アブリボン", kind: "ツリアブ" },
+  { id: 20, type1: "いわ", type2: "", name: "イワンコ", kind: "こいぬ" },
+  { id: 21, type1: "いわ", type2: "", name: "ルガルガン（まひるのすがた）", kind: "オオカミ" },
+  { id: 22, type1: "いわ", type2: "", name: "ルガルガン（まよなかのすがた）", kind: "オオカミ" },
   // { id: 104, type1: "いわ", type2: "", name: "ルガルガン（たそがれのすがた）", kind: "オオカミ" }, // ※ウルトラサン・ムーンで追加
-  { id: 105, type1: "みず", type2: "", name: "ヨワシ（たんどくのすがた）", kind: "こざかな" },
-  { id: 105, type1: "みず", type2: "", name: "ヨワシ（むれのすがた）", kind: "おおうお" },
-  { id: 132, type1: "じめん", type2: "", name: "ドロバンコ", kind: "うさぎうま" },
-  { id: 133, type1: "じめん", type2: "", name: "バンバドロ", kind: "ばんば" },
+  { id: 23, type1: "みず", type2: "", name: "ヨワシ（たんどくのすがた）", kind: "こざかな" },
+  { id: 24, type1: "みず", type2: "", name: "ヨワシ（むれのすがた）", kind: "おおうお" },
+  { id: 25, type1: "じめん", type2: "", name: "ドロバンコ", kind: "うさぎうま" },
+  { id: 26, type1: "じめん", type2: "", name: "バンバドロ", kind: "ばんば" },
 ];
 
 let Brand = [
@@ -92,92 +83,105 @@ let menu = [
   { id: "AA70", cost: 600, name: "バッファローモッツァレラWサイズ" }  // AA20の倍額として算出
 ];
 
-app.get("/keiyo", (req, res) => {
+app.get("/pokemon", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
-  res.render('db1', { data: station });
+  res.render('db1_pokemon', { data: pokemon });
 });
 
-app.get("/keiyo_add", (req, res) => {
+app.get("/pokemon_add", (req, res) => {
   let id = req.query.id;
-  let code = req.query.code;
+  let type1 = req.query.type1;
+  let type2 = req.query.type2;
   let name = req.query.name;
-  let newdata = { id: id, code: code, name: name };
-  station.push( newdata );
-  res.redirect('/public/keiyo_add.html');
+  let newdata = { id: id, type1: type1, type2: type2, name: name };
+  pokemon.push( newdata );
+  res.redirect('/public/pokemon_add.html');
 });
 
-app.get("/keiyo2", (req, res) => {
+app.get("/pokemon2", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
-  res.render('keiyo2', {data: station2} );
+  res.render('pokemon2', {data: pokemon2} );
 });
 
 // Create
-app.get("/keiyo2/create", (req, res) => {
-  res.redirect('/public/keiyo2_new.html');
+app.get("/pokemon2/create", (req, res) => {
+  res.redirect('/public/pokemon2_new.html');
 });
 
 // Read
-app.get("/keiyo2/:number", (req, res) => {
+app.get("/pokemon2/:number", (req, res) => {
   const number = req.params.number;
-  const detail = station2[ number ];
+  const detail = pokemon2[ number ];
 
   // ★追加：データが存在しない場合は一覧ページに戻す⭐️
   if (detail === undefined) {
     console.log("エラー: 指定された番号のデータが見つかりません");
-    return res.redirect('/keiyo2');
+    return res.redirect('/pokemon2');
   }
 
-  res.render('keiyo2_detail', {id: number, data: detail} );
+  res.render('pokemon2_detail', {id: number, data: detail} );
 });
 // Delete
-app.get("/keiyo2/delete/:number", (req, res) => {
+app.get("/pokemon2/delete/:number", (req, res) => {
+  const number = req.params.number;
+  const detail = pokemon2[number];
+
+  if (detail === undefined) {
+    return res.redirect('/pokemon2');
+  }
   // 本来は削除の確認ページを表示する
+  res.render('pokemon2_delete', { id: number, data: detail });
+});
   // 本来は削除する番号が存在するか厳重にチェックする
   // 本来ならここにDBとのやり取りが入る
-  station2.splice( req.params.number, 1 );
-  res.redirect('/keiyo2' );
+app.post("/pokemon2/delete/:number", (req, res) => {
+  pokemon2.splice( req.params.number, 1 );
+  res.redirect('/pokemon2' );
 });
 
 // Create
-app.post("/keiyo2", (req, res) => {
+app.post("/pokemon2", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
-  const id = station2.length + 1;
-  const code = req.body.code;
+  const id = pokemon2.length + 1;
+  const type1 = req.body.type1;
+  const type2 = req.body.type2;
   const name = req.body.name;
-  const change = req.body.change;
-  const passengers = req.body.passengers;
-  const distance = req.body.distance;
-  station2.push( { id: id, code: code, name: name, change: change, passengers: passengers, distance: distance } );
-  console.log( station2 );
-  res.render('keiyo2', {data: station2} );
+  const kind = req.body.kind;
+  pokemon2.push( { id: id, type1: type1, type2: type2,name: name, kind: kind } );
+  console.log( pokemon2 );
+  res.render('pokemon2', {data: pokemon2} );
 });
 
 // Edit
-app.get("/keiyo2/edit/:number", (req, res) => {
+app.get("/pokemon2/edit/:number", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
   const number = req.params.number;
-  const detail = station2[ number ];
-  res.render('keiyo2_edit', {id: number, data: detail} );
+  const detail = pokemon2[ number ];
+  res.render('pokemon2_edit', {id: number, data: detail} );
 });
 
 // Update
-app.post("/keiyo2/update/:number", (req, res) => {
+app.post("/pokemon2/update/:number", (req, res) => {
   // 本来は変更する番号が存在するか，各項目が正しいか厳重にチェックする
   // 本来ならここにDBとのやり取りが入る
   const number = req.params.number;
 // ★追加：データが存在しない場合は処理を中断して一覧に戻す⭐️
-  if (station2[number] === undefined) {
+  if (pokemon2[number] === undefined) {
     console.log("エラー: 更新しようとしたデータが見つかりません");
-    return res.redirect('/keiyo2');
+    return res.redirect('/pokemon2');
   }
-  station2[req.params.number].code = req.body.code;
-  station2[req.params.number].name = req.body.name;
-  station2[req.params.number].change = req.body.change;
-  station2[req.params.number].passengers = req.body.passengers;
-  station2[req.params.number].distance = req.body.distance;
-  console.log( station2 );
-  res.redirect('/keiyo2' );
+  pokemon2[req.params.number].type1 = req.body.type1;
+  pokemon2[req.params.number].type2 = req.body.type2;
+  pokemon2[req.params.number].name = req.body.name;
+  pokemon2[req.params.number].change = req.body.change;
+  pokemon2[req.params.number].passengers = req.body.passengers;
+  pokemon2[req.params.number].distance = req.body.distance;
+  console.log( pokemon2 );
+  res.redirect('/pokemon2' );
 });
+
+
+
 app.get("/menu", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
   res.render('dbtest', { data: menu });

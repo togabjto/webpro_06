@@ -1,0 +1,22 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %></title>
+</head>
+<body>
+  <h2><%= data.name %>の詳細</h2>
+  <table>
+    <tr><th>項目</th><th>データ</th></tr>
+    <tr><td>エントリーナンバー</td><td><%= data.entry_number %></td></tr>
+    <tr><td>ID</td><td><%= data.id %></td></tr>
+    <tr><td>地域</td><td><%= data.region %></td></tr>
+    <tr><td>銘柄</td><td><%= data.name %></td></tr>
+    <tr><td>個数</td><td><%= data.buy %></td></tr>
+  </table>
+  <a href="/brand2/edit/<%= id %>">編集</a>
+    <a href="/brand2/delete/<%= id %>">削除</a>
+  <a href="/brand2">銘柄s一覧に戻る</a>
+  
+</body>
+</html>

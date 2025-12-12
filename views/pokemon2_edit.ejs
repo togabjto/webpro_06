@@ -1,0 +1,21 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %></title>
+</head>
+<body>
+  <h2><%= data.name %>の編集</h2>
+  <form action="/pokemon2/update/<%= data.id - 1 %>" method="POST">
+    <table>
+      <tr><th>項目</th><th>データ</th></tr>
+      <tr><td>タイプ1</td><td><input type="text" name="type1" value="<%= data.type1 %>"></td></tr>
+      <tr><td>タイプ2</td><td><input type="text" name="type2" value="<%= data.type2 %>"></td></tr>
+      <tr><td>種族</td><td><input type="text" name="kind" value="<%= data.kind %>"></td></tr>
+      <tr><td>名前</td><td><input type="text" name="name" value="<%= data.name %>"></td></tr>
+    </table>
+    <input type="submit" values="登録">
+  </form>
+  <a href="/pokemon2/">ポケモン一覧に戻る</a>
+</body>
+</html>

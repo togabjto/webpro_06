@@ -1,0 +1,22 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>株の銘柄</title>
+</head>
+<body>
+  <h2>銘柄の詳細</h2>
+  <table>
+    <tr><th>エントリーナンバー</th><th>銘柄コード</th><th>地域</th><th>企業名</th><th>個数</th></tr>
+      <% let number = 0 %>
+      <% for( let row of data ) { %>
+        <tr><td><%= row.entry_number %></td>
+        <td><%= row.id %></td>
+        <td><%= row.region %></td>
+        <td><a href="/brand2/<%= number %>"><%- row.name %></a></td>
+        <td><%= row.buy %></td></tr>
+        <% number += 1 %>
+      <% } %>
+  </table>
+</body>
+</html>
