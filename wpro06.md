@@ -25,3 +25,7 @@ hand | text | ユーザの手 | グー/チョキ/パー
 win | hidden | 勝利数 | これまでの勝利数
 total | hidden | 対戦数 | これまでの対戦数
 
+
+
+
+
