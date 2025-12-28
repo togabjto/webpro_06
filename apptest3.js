@@ -1,3 +1,4 @@
+"use strict";
 const express = require("express");
 const app = express();
 
@@ -88,7 +89,13 @@ app.get("/pokemon", (req, res) => {
   res.render('db1_pokemon', { data: pokemon });
 });
 
-app.get("/pokemon_add", (req, res) => {
+app.get("/pokemon", (req, res) => {
+
+  // 本来ならここにDBとのやり取りが入る
+  res.render('db2_pokemon', { data: pokemon });
+});
+
+app.get("/pokemon/create", (req, res) => {
   let id = req.query.id;
   let type1 = req.query.type1;
   let type2 = req.query.type2;
@@ -99,7 +106,7 @@ app.get("/pokemon_add", (req, res) => {
 });
 
 // ⭐️
-app.post("/pokemon2_add", (req, res) => {
+app.post("/pokemon2/create", (req, res) => {
   let id = req.body.id;
   let type1 = req.body.type1;
   let type2 = req.body.type2;
@@ -202,6 +209,24 @@ app.post("/pokemon2/update/:number", (req, res) => {
 });
 
 
+
+// app.post("/brand2/create", (req, res) => {
+//   let entry_number = req.body.entry_number;
+//   let id = req.body.id;
+//   let region = req.body.region;
+//   let name = req.body.name;
+//   let buy = req.body.buy;
+
+//   let next_action = req.body.next_action
+//   let newdata = { entry_number: entry_number, id: id, region: region, name: name ,buy: buy};
+//   brand2.push( newdata );
+//   if (next_action == 'create')
+//     res.redirect('/public/brand2_add.html');
+//   else if (next_action == 'list')
+//     res.redirect('/brand2');
+// });
+
+
 app.get("/brand2", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
   res.render('brand2', {data: brand2} );
@@ -209,7 +234,7 @@ app.get("/brand2", (req, res) => {
 
 // Create
 app.get("/brand2/create", (req, res) => {
-  res.redirect('/public/pokemon2_new.html');
+  res.redirect('/public/brand2_add.html');
 });
 
 // Read
@@ -244,7 +269,7 @@ app.post("/brand2/delete/:number", (req, res) => {
 });
 
 // Create
-app.post("/brand2", (req, res) => {
+app.post("/brand2/create", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
   const id = brand2.length + 1;
   const entry_number = req.body.entry_number;
@@ -252,9 +277,15 @@ app.post("/brand2", (req, res) => {
   const region = req.body.region;
   const name = req.body.name;
   const buy = req.body.buy;
+
+  let next_action = req.body.next_action;
   brand2.push( { id: id, entry_number: entry_number, id: brand_id, region: region, name: name , buy: buy } );
   console.log( brand2 );
-  res.render('brand2', {data: brand2} );
+  if (next_action == 'create') {
+    res.redirect('/public/brand2_add.html'); // 入力画面に戻る
+  } else {
+    res.redirect('/brand2');
+  }
 });
 
 // Edit
@@ -290,7 +321,7 @@ app.get("/menu2", (req, res) => {
 
 // Create
 app.get("/menu2/create", (req, res) => {
-  res.redirect('/public/pokemon2_new.html');
+  res.redirect('/public/menu2_add.html');
 });
 
 // Read
@@ -338,6 +369,7 @@ app.post("/menu2", (req, res) => {
   res.render('menu2', {data: menu2} );
 });
 
+
 // Edit
 app.get("/menu2/edit/:number", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
@@ -367,19 +399,25 @@ app.post("/menu2/update/:number", (req, res) => {
 
 
 
-app.get("/menu", (req, res) => {
-  // 本来ならここにDBとのやり取りが入る
-  res.render('dbtest', { data: menu });
+// app.get("/menu2_add", (req, res) => {
+
+//   // 本来ならここにDBとのやり取りが入る
+//   res.render('dbtest', { data: menu });
+// });
+
+app.post("/menu2/create", (req, res) => {
+  let newdata = { id: req.body.id, cost: req.body.cost, name: req.body.name };
+
+  let next_action = req.body.next_action
+  menu2.push(newdata);
+  
+
+  if (next_action === 'create')
+    res.redirect('/public/menu2_add.html'); // 再入力へ
+  else
+    res.redirect('/menu2');     // 一覧へ
 });
 
-app.get("/menu_add", (req, res) => {
-  let id = req.query.id;
-  let cost = req.query.cost;
-  let name = req.query.name;
-  let newdata = { id: id, cost: cost, name: name };
-  menu.push( newdata );
-  res.redirect('/public/menu_add.html');
-});
 
 
 

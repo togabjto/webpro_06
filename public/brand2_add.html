@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>銘柄を追加する</title>
+</head>
+<body>
+    <script>
+        window.history.pushState( null, '', '/brand2/create' );
+    </script>
+    <form action="/brand2/create" method="post">
+
+        銘柄を追加
+
+        <br><br>
+
+        <label for="id">エントリーナンバー</label>
+        <input type="number" name="entry_number" id="entry_number" required>
+
+        <label for="id">ID</label>
+        <input type="text" name="id" id="id" required>
+
+        <label for="type1">地域</label>
+        <input type="text" name="region" id="region" required>
+
+        <label for="type2">銘柄</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="name">個数</label>
+        <input type="text" name="buy" id="buy" required>
+
+        <button type="submit" name="next_action" value="create">登録して入力を続ける</button>
+        <button type="submit" name="next_action" value="list">登録して一覧に戻る</button>
+    </form>
+</body>
+</html>

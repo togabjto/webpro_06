@@ -4,11 +4,11 @@ sequenceDiagram
   autonumber
   Webブラウザ ->> Webサーバ: Webページの取得
   Webサーバ ->> Webブラウザ:HTML,JS,CSS
-  Webブラウザ ->> BBSクライアント:起動
-  BBSクライアント ->> BBSサーバ:Post(書き込み)
-  BBSサーバ ->> BBSクライアント:全書き込み数
-  BBSクライアント ->> BBSサーバ:Read(読み込み)
-  BBSサーバ ->> BBSクライアント:掲示データ
-  BBSクライアント ->> BBSサーバ:Check(新規チェック)
-  BBSサーバ ->> BBSクライアント:全書き込み数
+  Webブラウザ ->> pokemon2クライアント:起動
+  pokemon2クライアント ->> pokemon2サーバ:Post(書き込み)
+  pokemon2サーバ ->> pokemon2クライアント:全書き込み数
+  pokemon2クライアント ->> pokemon2サーバ:Read(読み込み)
+  pokemon2サーバ ->> pokemon2クライアント:掲示データ
+  pokemon2クライアント ->> pokemon2サーバ:Check(新規チェック)
+  pokemon2サーバ ->> pokemon2クライアント:全書き込み数
 ```

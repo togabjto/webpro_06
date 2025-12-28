@@ -1,0 +1,12 @@
+app.post("/brand2_add", (req, res) => {
+  // 本来ならここにDBとのやり取りが入る
+  const id = brand2.length + 1;
+  const entry_number = req.body.entry_number;
+  const brand_id = req.body.id;
+  const region = req.body.region;
+  const name = req.body.name;
+  const buy = req.body.buy;
+  brand2.push( { id: id, entry_number: entry_number, id: brand_id, region: region, name: name , buy: buy } );
+  console.log( brand2 );
+  res.render('brand2', {data: brand2} );
+});

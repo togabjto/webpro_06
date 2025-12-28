@@ -5,7 +5,14 @@
     <title>ポケモンを追加する</title>
 </head>
 <body>
-    <form action="/pokemon2_add" method="post">
+    <script>
+        window.history.pushState( null, '', '/pokemon2/create' );
+    </script>
+    <form action="/pokemon2/create" method="post">
+
+        ポケモンを追加
+
+        <br><br>
         <label for="id">ID</label>
         <input type="number" name="id" id="id" required>
 

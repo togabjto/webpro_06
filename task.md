@@ -6,16 +6,16 @@
 行う作業を整理するために，タスクリストを作成できる．
 詳しいことはこのページのソースコードを参照すること．
 
-- [x] 開発者向けドキュメントの作業
+- [ ] 開発者向けドキュメントの作業
   - [x] 対象とするシステムの決定 :thinking:
   - [x] データ構造の決定 :thinking:
-    - [x] 削除確認ページの追加
-    - [x] 連続してデータを追加する遷移を追加
-  - [x] ページ構造の検討 :thinking:
-  - [x] ページ遷移の検討 :thinking:
-  - [x] HTTPメソッドとリソース名の決定
-  - [x] ページ遷移図の作成 :writing_hand:
-  - [x] ページ構造の決定
+    - [ ] 削除確認ページの追加
+    - [ ] 連続してデータを追加する遷移を追加
+  - [ ] ページ構造の検討 :thinking:
+  - [ ] ページ遷移の検討 :thinking:
+  - [ ] HTTPメソッドとリソース名の決定
+  - [ ] ページ遷移図の作成 :writing_hand:
+  - [ ] ページ構造の決定
   - [ ] ドキュメントの構成の検討 :thinking:
   - [ ] 概要 :writing_hand:
   - [ ] HTTPメソッドとリソース名一覧 :writing_hand:
@@ -40,46 +40,3 @@
   - [ ] データ削除 :writing_hand:
   - [ ] データ編集 :writing_hand:
 - [ ] 提出 :tada:
-
-
-
-```mermaid
-graph TD;
-A-->B;
-A-->C;
-B-->D;
-C-->D;
-```
-    
-```mermaid
-graph TD;
-    %% ノード定義
-    List[一覧]
-    New[新規登録]
-    NewProc[新規登録処理]
-    Detail[詳細表示]
-    Edit[編集]
-    UpdateProc[更新処理]
-    DelConfirm[削除確認]
-    DelProc[削除処理]
-
-    %% 新規登録フロー（左側）
-    List --> New
-    New --> List
-    New --> NewProc
-    NewProc --> New
-    NewProc --> List
-
-    %% 詳細・編集フロー（中央）
-    List --> Detail
-    Detail --> Edit
-    Edit --> UpdateProc
-    UpdateProc --> List
-
-    %% 削除フロー（右側）
-    Detail --> DelConfirm
-    DelConfirm --> DelProc
-    DelProc --> List
-```
-
-

@@ -5,7 +5,13 @@
     <title>メニューを追加する</title>
 </head>
 <body>
-    <form action="/menu_add">
+    <script>
+        window.history.pushState( null, '', '/menu2/create' );
+    </script>
+    <form action="/menu2/create" method="POST">
+        メニューを追加する
+
+        <br><br>
         <label for="id">ID</label>
         <input type="number" name="id" id="id" required>
 
@@ -15,7 +21,7 @@
         <label for="name">料理名</label>
         <input type="text" name="name" id="name" required>
 
-        <input type="submit" values="登録">
-    </form>
+        <button type="submit" name="next_action" value="create">登録して入力を続ける</button>
+        <button type="submit" name="next_action" value="list">登録して一覧に戻る</button>    </form>
 </body>
 </html>
